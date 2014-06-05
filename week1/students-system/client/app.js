@@ -66,7 +66,8 @@ var generateTable=function(items){
     }, allStudents));
 
     //tuk trqbva da se doopravi
-    $("#neshto si").html("");
+    $("#tables-container").remove();
+    //$("#tables-container").append(generateTable(allStudents));
     $("#tables-container").append(generateTable(allStudents));
   });
 
