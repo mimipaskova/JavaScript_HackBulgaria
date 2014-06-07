@@ -7,7 +7,7 @@ var allStudents=[];
 var courses={};
 
 var groupBy = function(gf, arr){
-  var result = {};
+  var result = [];// promeneno ot {}
   arr.forEach(function(item){
     var key = gf(item);
     if(!result[key]){
@@ -61,14 +61,20 @@ var generateTable=function(items){
   $("#group-btn").on("click", function() {
 
     console.log(courses);
-    console.log(groupBy(function(student){
+    var byCource = groupBy(function(student){
       return student.course;
-    }, allStudents));
+    }, allStudents);
+
 
     //tuk trqbva da se doopravi
-    $("#tables-container").remove();
+    //$("#tables-container").empty();
     //$("#tables-container").append(generateTable(allStudents));
+
+    //var keys = Object.keys(byCource);
+    //kesy.forEach (function)
+
     $("#tables-container").append(generateTable(allStudents));
+    console.log(byCource);
   });
 
   $("#search-btn").on("click", function() {
