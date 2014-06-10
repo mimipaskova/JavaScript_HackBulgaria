@@ -12,4 +12,6 @@ $(document).ready(function() {
     queue.push(toHiglight);
 
   });
+
+  //alert("I am a sad and empty app.js :(");
 });
