@@ -39,3 +39,18 @@ Array.prototype.first = function(){
   return this[0];
 };
 
+Array.prototype.sum = function(){
+  var total = this.reduce(function(a, b) {
+  return a + b;
+  });
+return total;
+};
+
+
+Array.prototype.average = function(){
+  var total = this.reduce(function(a, b) {
+  return a + b;
+  });
+return total/this.length;
+};
+
