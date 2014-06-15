@@ -28,7 +28,7 @@ $(document).ready(function(){
       $("#second-first-digit").html(dec_seconds);
       $("#second-second-digit").html(edin_seconds);
 
-    }, 10);
+    }, 1000);
   });
 
   $("#down").on("click",function(){
