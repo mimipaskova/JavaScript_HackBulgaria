@@ -12,6 +12,15 @@ $(document).ready(function(){
         minutes++;
         secundes=0;
       }
+      var dec_min=minutes/10;
+      var edin_min=minutes%10;
+      var dec_secundes=secundes/10;
+      var edin_secundes=secundes%10;
+      $("minute-first-digit").html(dec_min);
+      $("minute-second-digit").html(edin_min);
+      $("second-first-digit").htm(dec_secundes);
+      $("second-second-digit").html(edin_secundes);
+
 
 
 
