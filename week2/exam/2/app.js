@@ -46,7 +46,11 @@ $(document).ready(function(){
   });
 
   $(".btn-danger").on("click",function(){
-    alert("stop");
+    $("#minute-first-digit").html(0);
+    $("#minute-second-digit").html(0);
+    $("#second-first-digit").html(0);
+    $("#second-second-digit").html(0);
+    window.clearInterval(clock);
   });
 
 });
