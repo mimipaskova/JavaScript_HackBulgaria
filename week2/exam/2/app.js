@@ -1,10 +1,11 @@
 "use strict";
 
 $(document).ready(function(){
+  var clock;
 
 
   $("#up").on("click",function(){
-    var clock;
+
     var minutes = 0;
     var seconds = 0;
     var max_minutes = $("#minutes").val();
@@ -31,14 +32,13 @@ $(document).ready(function(){
   });
 
   $("#down").on("click",function(){
-    var clock;
     var max_minutes = $("#minutes").val();
     var max_seconds = $("#seconds").val();
     clock = window.setInterval(function(){
       max_seconds--;
-      if(max_seconds < 1){
+      if(max_seconds < 0){
         max_minutes--;
-        max_seconds=60;
+        max_seconds = 59;
       }
 
       var dec_min=Math.floor(max_minutes/10);
@@ -49,7 +49,7 @@ $(document).ready(function(){
       $("#minute-second-digit").html(edin_min);
       $("#second-first-digit").html(dec_seconds);
       $("#second-second-digit").html(edin_seconds);
-      if(dec_min < 1 && edin_min < 1 && dec_seconds < 1 && edin_seconds < 2){
+      if(dec_min < 1 && edin_min < 1 && dec_seconds < 1 && edin_seconds < 1){
         window.clearInterval(clock);
         $("#second-second-digit").html(0);
       }
