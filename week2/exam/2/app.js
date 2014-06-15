@@ -6,15 +6,20 @@ $(document).ready(function(){
   $("#up").on("click",function(){
     var minutes = 0;
     var seconds = 0;
+    var max_minutes = $("#minutes").val();
+    var max_seconds = $("#seconds").val();
     clock = window.setInterval(function(){
       seconds++;
       if(seconds > 59){
         minutes++;
         seconds=0;
       }
-      var dec_min=Math.round(minutes/10);
+      if(minutes >= max_minutes && seconds >= max_seconds){
+        window.clearInterval(clock);
+      }
+      var dec_min=Math.floor(minutes/10);
       var edin_min=minutes%10;
-      var dec_seconds=Math.round(seconds/10);
+      var dec_seconds=Math.floor(seconds/10);
       var edin_seconds=seconds%10;
       $("#minute-first-digit").html(dec_min);
       $("#minute-second-digit").html(edin_min);
@@ -24,7 +29,7 @@ $(document).ready(function(){
 
 
 
-    }, 1000);
+    }, 10);
     //setInterval(function(){
       //alert("Hello")
     //}, 3000);
