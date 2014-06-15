@@ -4,8 +4,8 @@ $(document).ready(function(){
   var clock;
   //alert("start");
   $("#up").on("click",function(){
-    var minutes = $("#minutes").val();
-    var seconds = $("#seconds").val();
+    var minutes = 0;
+    var seconds = 0;
     clock = window.setInterval(function(){
       seconds++;
       if(seconds > 59){
@@ -18,7 +18,7 @@ $(document).ready(function(){
       var edin_seconds=seconds%10;
       $("#minute-first-digit").html(dec_min);
       $("#minute-second-digit").html(edin_min);
-      $("#second-first-digit").htm(dec_seconds);
+      $("#second-first-digit").html(dec_seconds);
       $("#second-second-digit").html(edin_seconds);
 
 
