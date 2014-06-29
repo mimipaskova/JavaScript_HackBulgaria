@@ -10,6 +10,7 @@ $(document).ready(function(){
     var seconds = 0;
     var max_minutes = $("#minutes").val();
     var max_seconds = $("#seconds").val();
+    window.clearInterval(clock);
     clock = window.setInterval(function(){
       seconds++;
       if(seconds > 59){
@@ -34,6 +35,7 @@ $(document).ready(function(){
   $("#down").on("click",function(){
     var max_minutes = $("#minutes").val();
     var max_seconds = $("#seconds").val();
+    window.clearInterval(clock);
     clock = window.setInterval(function(){
       max_seconds--;
       if(max_seconds < 0){
