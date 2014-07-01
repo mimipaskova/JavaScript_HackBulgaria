@@ -7,3 +7,4 @@ var listToNumber = function(digits){
 };
 
 exports.listToNumber = listToNumber;
+
