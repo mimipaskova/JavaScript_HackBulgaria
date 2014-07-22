@@ -15,5 +15,5 @@ while(index < data.length){
     dublicate++;
     //console.log(dublicate);
   };
-  index++;
+  index++
 }
