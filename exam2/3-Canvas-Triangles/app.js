@@ -4,10 +4,11 @@ $(document).ready(function() {
   "use strict";
   var c = document.getElementById("hackCanvas");
   var ctx = c.getContext("2d");
-  ctx.fillStyle = "green";
-  ctx.fillRect(10,10,10,10);
   var color = "red";
   var array = [];
+  var tileSize = 4;
+  var canvasWidth = c.width;
+  var canvasHeight = c.height;
 
   function Pixel(x,y, ctx, size, color) {
       this.x = x;
@@ -19,7 +20,6 @@ $(document).ready(function() {
       this.draw = function(){
         this.ctx.fillStyle = color;
         this.ctx.fillRect(this.x , this.y, this.size, this.size, this.color);
-
       };
   }
 
@@ -31,9 +31,21 @@ $(document).ready(function() {
     arrOfPoints(createPoint(x,y));
   });
 
+  $("#clearCanvasButton").click(function(e) {
+    // Store the current transformation matrix
+    ctx.save();
+
+    // Use the identity matrix while clearing the canvas
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.clearRect(0, 0, c.width, c.height);
+
+    // Restore the transform
+    ctx.restore();
+  });
+
 
 var createPoint = function(x,y){
-  var point = new Pixel(x-5,y-5,ctx,10,color);
+  var point = new Pixel(x-tileSize/2 ,y-tileSize/2,ctx,tileSize,color);
   return point;
 
 };
@@ -43,8 +55,10 @@ var drawPoint = function(point){
 };
 
 var arrOfPoints = function(point){
+  console.log(array);
   array.push(point);
   if(array.length % 3 ===0){
+    console.log(array);
 
     //drawLine();
     var x = array[array.length-1].x;
@@ -56,21 +70,17 @@ var arrOfPoints = function(point){
     drawLine(x,y,xx,yy);
     drawLine(x,y,xxx,yyy);
     drawLine(xx,yy,xxx,yyy);
-
+    array = [];
   }
 };
 
 var drawLine = function (firstX,firstY, secondX, secondY){
-  var c = document.getElementById("hackCanvas");
-  var ctx = c.getContext("2d");
-  ctx.moveTo(firstX+5,firstY+5);
-  ctx.lineTo(secondX+5,secondY+5);
+  ctx.beginPath();
+  ctx.moveTo(firstX+tileSize/2,firstY+tileSize/2);
+  ctx.lineTo(secondX+tileSize/2,secondY+tileSize/2);
   ctx.stroke();
-};
+  ctx.closePath();
 
-  var pix = new Pixel(2,3,ctx,10,"red");
-  pix.draw();
-
-
-
+  //canvas.width = canvas.width;
+  };
 });
