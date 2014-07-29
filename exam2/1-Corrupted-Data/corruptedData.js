@@ -8,12 +8,11 @@ while(index < data.length){
   dublicate = index+1;
   while(dublicate < data.length){
 
-    if(data[index].fields.mac === data[dublicate].fields.mac
-      && data[index].fields.date === data[dublicate].fields.date){
+    if(data[index].fields.student === data[dublicate].fields.student && data[index].fields.date === data[dublicate].fields.date){
       console.log(data[dublicate]);
-    };
+    }
     dublicate++;
     //console.log(dublicate);
-  };
-  index++
+  }
+  index++;
 }
